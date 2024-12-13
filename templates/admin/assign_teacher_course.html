@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Teacher Course</title>
+    <link rel="stylesheet" href="../../static/adminReg.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="college-background-overlay">
+        <div class="container">
+            <form class="student-form" autocomplete="off" action="{{ url_for('assign_teacher_course') }}" method="POST">                <h1>Assign Course to Teacher</h1>
+                <div class="section course-info">
+                    <h2>Course Info</h2>
+
+                    <label for="department">Department Name *</label><br>
+                    <select id="department" name="department" required>
+                        <option value="" disabled selected>Select</option>
+                        {% for department in departments %}
+                        <option value="{{ department.Department_Name }}">{{ department.Department_Name }}</option>
+                        {% endfor %}
+                    </select><br>
+
+                    <label for="semester">Semester *</label><br>
+                    <select id="semester" name="semester" required>
+                        <option value="" disabled selected>Select Semester</option>
+                    </select><br>
+
+                    <label for="course">Course Name *</label><br>
+                    <select id="course" name="course" required>
+                        <option value="" disabled selected>Select Course</option>
+                    </select><br>
+
+                    <label for="courseInstructor">Course Instructor *</label><br>
+                    <select name="teacher" id="teacher" required>
+                        <option value="" disabled selected>Select Instructor</option>
+                    </select><br>
+
+                    <label for="section">Section *</label><br>
+                    <select id="section" name="section" required>
+                        <option value="" disabled selected>Select Section</option>
+                    </select><br>
+                </div>
+
+                <div class="submit_btn">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#department').change(function() {
+                var departmentName = $(this).val();
+                console.log('Department selected:', departmentName);
+                if (departmentName) {
+                    // Fetch semesters for the selected department
+                    $.getJSON('/get_semesters/' + departmentName, function(data) {
+                        $('#semester').html('<option value="" disabled selected>Select Semester</option>');
+                        $.each(data.semesters, function(index, semester) {
+                            $('#semester').append('<option value="' + semester + '">' + semester + '</option>');
+                        });
+                    });
+
+                    // Fetch teachers for the selected department
+                    $.getJSON('/get_teachers/' + departmentName, function(data) {
+                        $('#teacher').html('<option value="" disabled selected>Select Instructor</option>');
+                        $.each(data.teachers, function(index, teacher) {
+                            $('#teacher').append('<option value="' + teacher.Teacher_id + '">' + teacher.name + '</option>');
+                        });
+                    });
+
+                    // Clear sections and courses dropdown
+                    $('#section').html('<option value="" disabled selected>Select Section</option>');
+                    $('#course').html('<option value="" disabled selected>Select Course</option>');
+                } else {
+                    $('#semester').html('<option value="" disabled selected>Select Semester</option>');
+                    $('#teacher').html('<option value="" disabled selected>Select Instructor</option>');
+                    $('#section').html('<option value="" disabled selected>Select Section</option>');
+                    $('#course').html('<option value="" disabled selected>Select Course</option>');
+                }
+            });
+
+            $('#semester').change(function() {
+    var departmentName = $('#department').val();
+    var semesterNumber = $(this).val();
+    console.log('Semester selected:', semesterNumber);
+    if (departmentName && semesterNumber) {
+        // Fetch courses for the selected department and semester
+        $.getJSON('/get_courses/' + departmentName + '/' + semesterNumber, function(data) {
+            console.log('Courses data:', data);  // Add this line
+            $('#course').html('<option value="" disabled selected>Select Course</option>');
+            $.each(data.courses, function(index, course) {
+                $('#course').append('<option value="' + course.Course_Name + '">' + course.Course_Name + '</option>');
+            });
+        });
+
+        // Fetch sections for the selected department and semester
+        $.getJSON('/get_sections/' + departmentName + '/' + semesterNumber, function(data) {
+            $('#section').html('<option value="" disabled selected>Select Section</option>');
+            $.each(data.sections, function(index, section) {
+                $('#section').append('<option value="' + section + '">' + section + '</option>');
+            });
+        });
+    } else {
+        $('#course').html('<option value="" disabled selected>Select Course</option>');
+        $('#section').html('<option value="" disabled selected>Select Section</option>');
+    }
+});
+
+        });
+    </script>
+</body>
+</html>

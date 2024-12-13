@@ -1,0 +1,469 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap');
+
+
+*{
+    margin: 0%;
+}
+
+.background{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    background: linear-gradient(180deg,#FA00FF,#5FD9FF);
+}
+
+.background .leftNavBar {
+    background:#FFFAFF;
+    width: 298px;
+    height: 100%;
+    align-items: center;
+    justify-content: start;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.background .leftNavBar button{
+    background: linear-gradient(90deg,#FA00FF,#5FD9FF);
+    width: 220px;
+    height: 40px;
+    margin: 40px;
+    cursor: pointer;
+    border: white 2px solid;
+    border-radius: 12px;
+    color: white;
+    font-size: 18px;
+    outline: none;
+    font-family: "lato",sans-serif;
+    font-weight: 700;
+    text-align: center;
+    text-transform: capitalize;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.137); 
+
+    a{
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+    }
+}
+
+.background .leftNavBar button .fa-duotone{
+    margin-right: 20px;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.leftNavBar ul{
+    list-style-type: none;
+    overflow: hidden;
+    padding: 0%;
+}
+
+.leftNavBar li {
+    margin-top: 20px;
+    font-size: 20px;
+    width: 220px;
+    height: fit-content;
+    background: rgba(255, 255, 255, 0.308);
+    border-radius: 12px;
+}
+
+.leftNavBar li .fa-duotone{
+    margin-right: 20px;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.leftNavBar li a{
+    font-family: lato,sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.leftNavBar hr{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 220px;
+    background: linear-gradient(90deg,#FA00FF,#5FD9FF);
+    height: 3px;
+    border: none;
+}
+
+.leftNavBar .edit{
+    background: linear-gradient(#FFFAFF 0 0) padding-box,linear-gradient(90deg, #5FD9FF, #FA00FF) border-box; 
+    border: 3px solid transparent;
+    border-radius: 12px;
+    width: 220px;
+    height: 40px;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-family: "lato",sans-serif;
+    font-weight: 700;
+    text-align: center;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: none;
+    bottom: 20px;
+    .fa-duotone{
+        margin-right: 20px;
+        font-size: 20px;
+        color: #000000;
+    }
+}
+.background .rightNavBar {
+    margin-left: 2px;
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
+    padding-top: 40px;
+    width: 100%;
+    height: 100%;
+    background: #FFFAFF;
+    overflow: scroll;
+}
+
+.rightNavBar .wish {
+    width: 500px;
+    background: linear-gradient(to left, #5FD9FF, #FA00FF);
+    background-clip: text;
+    color: transparent;
+    font-family: "Aclonica", sans-serif;
+    font-size: 43px;
+    text-transform: capitalize;
+    word-wrap: break-word;
+}
+
+.rightNavBar .profileCard {
+    position: relative;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    width: 100%;
+    height:fit-content;
+    margin-top: 20px;
+    background: linear-gradient(90deg, #FC78FF, #5FD9FF);
+    border: #ffffff 8px solid;
+    border-radius: 22px;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightNavBar .profileCard .profileImage {
+    width: 220px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightNavBar .profileCard .profileImage .image {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    width: 150px;
+    height: 150px;
+    border: #FFFAFF 2px solid;
+    border-radius: 50%;
+    background-color: #FFFAFF;
+    box-sizing: border-box;
+}
+
+.rightNavBar .profileCard .profileInfo  .info .detail{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.nameBranch {
+    margin-top: 5px;
+    word-wrap: break-word;
+    color: #FFFAFF;
+}
+
+.nameBranch .userName {
+    font-family: "Oswald", sans-serif;
+    font-size: 35px;
+    font-weight: 400;
+    text-transform: capitalize;
+    word-wrap: break-word;
+    color: #FFFAFF;
+}
+
+.rightNavBar{
+    background-color: #F0FAFF;
+
+    .boxInfo .boxDetails {
+        min-width: 120px;
+        min-height: 70px;
+        width: 23vh;
+        height: 70px;
+        background: linear-gradient(#F0FAFF 0 0) padding-box, linear-gradient(90deg, #5FD9FF, #FA00FF) border-box;
+        border: 3px solid transparent;
+        border-radius: 12px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .allInfo .cardInfo{
+        width: 40%;
+        height: 450px;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(#F0FAFF 0 0) padding-box,linear-gradient(180deg, #5FD9FF, #FA00FF) border-box;     
+        border: 3px solid transparent;
+        border-radius: 12px;
+        flex-direction: column;
+        gap: 10px;
+        text-transform: capitalize;
+        font-family: "Sofia Sans Condensed", sans-serif;
+        font-size: 22px;
+        
+    }
+}
+
+.nameBranch .branch {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    font-family: "Lato", Sofia Sans;
+    font-weight: 600;
+    text-transform: capitalize;
+    word-wrap: break-word;
+}
+
+.boxInfo {
+    display: flex;
+    flex-flow: wrap;
+    column-gap: 10vh;
+    row-gap: 10px;
+    margin-top: 20px;
+}
+
+.boxInfo .boxDetails {
+    min-width: 120px;
+    min-height: 70px;
+    width: 23vh;
+    height: 70px;
+    background: linear-gradient(#FFFAFF 0 0) padding-box, linear-gradient(90deg, #5FD9FF, #FA00FF) border-box;
+    border: 3px solid transparent;
+    border-radius: 12px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxInfo .boxDetails .text {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.boxInfo .boxDetails .text p {
+    margin: 0;
+    font-weight: normal;
+    margin-top: 10px;
+}
+
+.boxDetails .text {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    grid: 5px;
+    font-family: "Sofia Sans Condensed", sans-serif;
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 16px;
+    color: #00000070;
+    p{
+      color: #1a227ebe;
+    }
+}
+
+.allInfo{
+    width: 100%;
+    height: 50%;
+    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 30px;
+}
+
+.allInfo .cardInfo{
+    width: 40%;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(#FFFAFF 0 0) padding-box,linear-gradient(180deg, #5FD9FF, #FA00FF) border-box;     
+    border: 3px solid transparent;
+    border-radius: 12px;
+    flex-direction: column;
+    gap: 10px;
+    text-transform: capitalize;
+    font-family: "Sofia Sans Condensed", sans-serif;
+    font-size: 22px;
+    
+}
+.allInfo .cardInfo .info{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #1a227ebe;
+    font-size: 35px;
+    justify-content: center;
+}
+.allInfo .cardInfo div {
+    margin-top: 3px;
+    width: 80%;
+    font-size: 24px;
+    display: flex;
+    justify-content: left;
+    
+}
+
+.allInfo .cardInfo .detail{
+    width: 45%;
+}
+
+.allInfo .cardInfo .gap{
+    color: #1a227ebe;
+}
+
+.subject-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust gap as needed */
+    justify-content: flex-start;
+    margin-top: 25px;
+}
+
+.subject {
+    justify-content: center; 
+    align-items: center; 
+    margin: 30px; /* Adjust margin as needed */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background: linear-gradient(#FFFAFF 0 0) padding-box,
+                linear-gradient(360deg, #5FD9FF, #FA00FF) border-box; 
+    border: 3px solid transparent;
+    border-radius: 12px;
+    width: 300px;
+    height: 200px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.137); 
+}
+
+.sub_type {
+    color: rgba(26, 35, 126, 0.80);
+    font-size: 21px;
+    font-family: Lato;
+    font-weight: 700;
+    text-transform: uppercase;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.sub_name {
+    color: rgba(0, 0, 0, 0.60);
+    font-size: 18px;
+    font-family: Sofia Sans;
+    font-weight: 700;
+    text-transform: capitalize;
+    word-wrap: break-word;
+    width: 280px;
+    overflow: auto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.marquee-container {
+    width: 280px;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.marquee-content {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-100%, 0);
+    }
+}
+
+.SemAndSection{
+    color: rgba(0, 0, 0, 0.60);
+    font-size: 18px;
+    font-family: Sofia Sans;
+    font-weight: 700;
+    text-transform: capitalize;
+    word-wrap: break-word;
+}
+
+
+.student-subject-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust gap as needed */
+    justify-content: flex-start;
+    margin-top: 25px;
+}
+
+.student-subject {
+    justify-content: center; 
+    align-items: center; 
+    margin: 30px; /* Adjust margin as needed */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background: linear-gradient(#F0FAFF 0 0) padding-box,
+                linear-gradient(360deg, #5FD9FF, #FA00FF) border-box; 
+    border: 3px solid transparent;
+    border-radius: 12px;
+    width: 300px;
+    height: auto;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.137); 
+    padding: 30px 0 30px 0;
+}
+
+
+.detail2 {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border-radius: 6px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    color: rgb(70, 70, 70);
+    font-size: 18px;
+    font-family: Sofia Sans;
+    font-weight: 700;
+    text-transform: capitalize;
+    word-wrap: break-word;
+
+}
+
+.detail2 span{
+    margin-left: 60px;
+}

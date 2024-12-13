@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Profile</title>
+    <link rel="stylesheet" href="../../static/styles.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+</head>
+
+<body>
+    <div class="background">
+        <div class="leftNavBar">
+            <button><i class="fa-duotone fa-user"></i><a href="{{ url_for('teacher_profile') }}">my profile </a></button>
+
+            <ul>
+                <nav>
+                    <li><i class="fa-duotone fa-screen-users"></i><a href={{ url_for('manage_students') }}>manage students</a></li>
+                    <div class="hr"><hr></div>
+                    <li><i class="fa-duotone fa-calendar-users"></i><a href={{ url_for('teacherTimeTable') }}>time table</a></li>
+                    <div class="hr"><hr></div>
+                    <li><i class="fa-duotone fa-books"></i><a href={{ url_for('teacher_subject')}}>subjects</a></li>
+                    <div class="hr"><hr></div>
+                </nav>
+            </ul>
+        </div>
+
+        <div class="rightNavBar">
+            <div class="wish">Welcome, Teacher!</div>
+
+            <div class="subject-container">
+                {% for course in assigned_courses %}
+                <div class="subject">
+                    <span class="sub_type">theory</span>
+                    <div class="marquee-container">
+                        <div class="marquee-content">
+                            <span class="sub_name"><span>{{ course.Course_Name }}</span> : {{ course.Course_Name }}</span>
+                        </div>
+                    </div>
+                    <div class="SemAndSection">
+                        <span class="sem">{{ course.Semester_Number }}</span> Sem
+                        "<span class="section">{{ course.Section_Name }}</span>" Section
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../../static/admin.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="sidebar" id="sidebar">
+            <button class="close-button" id="close-button">&times;</button>
+            <a href="{{ url_for('view_dashboard') }}"><button class="button">VIEW DASHBOARD</button></a>
+            <a href="{{ url_for('create_time_table') }}"><button class="button">CREATE TIME TABLE</button></a>
+            <a href="{{ url_for('create_course') }}"><button class="button">CREATE COURSE</button></a>
+            <a href="{{ url_for('assign_teacher_course') }}"><button class="button">ASSIGN TEACHER COURSE</button></a>
+        </div>
+        <button class="open-button" id="open-button">☰</button>
+        <div class="student section">
+            <div class="container">
+                <div class="content">
+                    <a href="{{ url_for('create_student') }}"><button class="btn-primary">Create new student</button></a>
+                    <div class="total">Total Students: <span class="student-result">{{ total_students }}</span></div>
+                    <div class="heading">
+                        <h1>Branches</h1>
+                    </div>
+                    <div class="branches">
+                        {% for department in department_data %}
+                        <div class="branch">
+                            <div class="name">{{ department.name }}:</div> 
+                            <div class="result">{{ department.student_count }}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search for Student">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="teacher section">
+            <div class="container">
+                <div class="content">
+                    <a href="{{ url_for('create_teacher') }}"><button class="btn-primary">Create new teacher</button></a>
+                    <div class="total">Total Teachers: <span class="teacher-result">{{ total_teachers }}</span></div>
+                    <div class="heading">
+                        <h1>Branches</h1>
+                    </div>
+                    <div class="branches">
+                        {% for department in department_data %}
+                        <div class="branch">
+                            <div class="name">{{ department.name }}:</div> 
+                            <div class="result">{{ department.teacher_count }}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search for Teacher">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+    const openButton = document.getElementById('open-button');
+    const closeButton = document.getElementById('close-button');
+    const sidebar = document.getElementById('sidebar');
+
+    openButton.addEventListener('click', () => {
+        sidebar.style.left = '0';
+        openButton.classList.add('hidden');
+    });
+
+    closeButton.addEventListener('click', () => {
+        sidebar.style.left = '-250px';
+        openButton.classList.remove('hidden');
+    });
+});
+
+    </script>
+</body>
+</html>

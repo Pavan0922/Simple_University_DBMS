@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    font-family: "lato";
+    margin: 0 auto;
+
+}
+
+.background-overlay {
+    background-image: url('../assets/studentbg.jpeg');
+    background-size: cover;
+    background-position:center;
+    background-attachment: fixed;
+}
+
+.teacher-background-overlay{
+    background-image: url('../static/images/teacherbg.jpeg');
+    background-size: cover;
+    background-position:center;
+    background-attachment: fixed;
+}
+
+.college-background-overlay{
+    background-image: url('../static/images/collegebg.jpeg');
+    background-size: cover;
+    background-position:center;
+    background-attachment: fixed;
+}
+h1{
+    margin: 30px;
+    padding: 10px; 
+    background: #543310; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 10px; 
+    display: inline-flex;
+    color: #F8F4E1;
+    font-size: 25px;
+    font-family: Aclonica;
+    font-weight: 400;
+    word-wrap: break-word
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(3px);
+    position: relative;
+    overflow-y: scroll;
+}
+
+.section{
+    width: fit-content;
+    height: max-content;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: white;
+}
+label{
+    width: 100%;
+    height: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    color: #543310;
+
+}
+input{
+    width: 500px;
+    height: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #af8f6f2e;
+    border: none;
+    color: #543310;
+    text-transform: capitalize;
+}
+input:focus{
+    outline: none;
+    border: 0.2px solid #543310;
+}
+
+
+::-webkit-input-placeholder{
+    color: #AF8F6F;
+    border: 0;
+}
+
+select{
+    width: 503px;
+    height: 28px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #af8f6f2e;
+    border: none;
+    color: #543310;
+}
+
+select:placeholder-shown{
+    color: #AF8F6F;
+    border: 0;
+}
+
+option:not(:first-of-type) {
+    color: #543310;
+  }
+select:focus{
+    outline: none;
+    border: 0.2px solid #543310;
+    color: #543310;
+}
+
+.section h2{
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+
+.submit_btn{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+}
+button{
+    margin: 20px;
+    width: 100px;
+    height: 30px;
+    background-color: #543310;
+    color: #F8F4E1; 
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: Inter;
+    font-weight: 700;
+    word-wrap: break-word;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+input[type="date"]{
+    color: #AF8F6F;
+    text-transform: uppercase;
+}
+
+input[type="email"]{
+    color: #543310;
+    text-transform: lowercase;
+}
+
+input[type="email"]::placeholder{
+    text-transform: capitalize;
+}

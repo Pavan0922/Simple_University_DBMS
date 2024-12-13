@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="../../static/sstyles.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+</head>
+
+<body>
+    <div class="background">
+        <div class="SleftNavBar">
+            <button>
+                <i class="fa-duotone fa-user"></i>
+                <a>My Profile</a>
+            </button>
+            <ul>
+                <nav>
+                    <li>
+                        <i class="fa-duotone fa-books"></i>
+                        <a href={{ url_for('student_subject') }}>Subjects</a>
+                    </li>
+                    <div class="hr"><hr></div>
+                    <li>
+                        <i class="fa-duotone fa-calendar-users"></i>
+                        <a href="{{ url_for('student_timetable') }}">Time Table</a>
+                    </li>
+                    <div class="hr"><hr></div>
+                </nav>
+            </ul>
+            <div class="edit">
+                <button onclick="document.getElementById('fileInput').click()">Add Profile Photo</button>
+                <form action="{{ url_for('upload_student_profile_photo') }}" method="POST" enctype="multipart/form-data" style="display: none;">
+                    <input type="file" name="profile_photo" id="fileInput" onchange="this.form.submit()">
+                </form>
+            </div>
+        </div>
+
+        <div class="SrightNavBar">
+            <div class="wish">Welcome, {{ student.F_Name }}!</div>
+            <div class="profileCard">
+                <div class="profileImage">
+                    {% if student.Image %}
+                    <img src="{{ url_for('download_student_image', student_id=student.USN) }}" alt="Profile Image" class="image">
+                    {% else %}
+                        <img src="../../static/default_profile.png" alt="Default Profile Image" class="image">
+                    {% endif %}
+                </div>
+                <div class="profileInfo">
+                    <div class="nameBranch">
+                        <p class="userName">{{ student.F_Name }} {{ student.M_Name }} {{ student.L_Name }}</p>
+                        <p class="branch">Computer Science and Engineering</p>
+                    </div>
+                    <div class="boxInfo">
+                        <div class="boxDetails">
+                            <div class="text">University No<p>12345678</p></div>
+                        </div>
+                        <div class="boxDetails">
+                            <div class="text">Semester<p>{{student.Semester_Number}}</p></div>
+                        </div>
+                        <div class="boxDetails">
+                            <div class="text">Department<p>{{student.Department_Name}}</p></div>
+                        </div>
+                        <div class="boxDetails">
+                            <div class="text">Validity<p>4 yrs</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="allInfo">
+                <div class="cardInfo">
+                    <div class="info">Personal Information</div>
+                    <div>
+                        <div class="detail">First Name:</div>
+                        <div class="fName gap">{{ student.F_Name }}</div>
+                    </div>
+                    <div>
+                        <div class="detail">Last Name:</div>
+                        <div class="lName gap">{{ student.L_Name }}</div>
+                    </div>
+                    <div>
+                        <div class="detail">Gender:</div>
+                        <div class="gender gap">{{ student.Gender }}</div>
+                    </div>
+                    <div>
+                        <div class="detail">Date of Birth:</div>
+                        <div class="dob gap">{{ student.DOB }}</div>
+                    </div>
+                    <div>
+                        <div class="detail">Phone Number:</div>
+                        <div class="phno gap">{{ student.PHNO }}</div>
+                    </div>
+                    <div>
+                        <div class="detail">Email:</div>
+                        <div class="email gap" style="text-transform: lowercase;">{{ student.Email }}</div>
+                    </div>
+                </div>
+
+                <div class="cardInfo">
+                    <div class="info">Student Details</div>
+                    <div>
+                        <div class="detail">USN:</div>
+                        <div class="fName gap">{{ student.USN }}</div>
+                    </div>
+                    <div>
+                        <div class="detail">Section:</div>
+                        <div class="section gap">{{ student.Section_Name }}</div>
+                    </div>
+                    <div>
+                        <div class="detail">Semester:</div>
+                        <div class="semester gap">{{ student.Semester_Number }}</div>
+                    </div>
+                    <div>
+                        <div class="detail">Date of Joining:</div>
+                        <div class="doj gap">{{ student.Enrollment_Year }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

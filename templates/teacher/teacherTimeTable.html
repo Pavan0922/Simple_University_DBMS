@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Timetable</title>
+    <link rel="stylesheet" href="../../static/timetable.css">
+    <link rel="stylesheet" href="../../static/styles.css">
+
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+</head>
+
+<body>
+    <div class="background">
+        <div class="leftNavBar">
+            <button><i class="fa-duotone fa-user"></i><a href="{{ url_for('teacher_profile') }}">my profile </a></button>
+            <ul>
+                <nav>
+                    <li><i class="fa-duotone fa-screen-users"></i><a href={{ url_for('manageStudents') }}>manage students</a></li>
+                    <div class="hr"><hr></div>
+                    <li><i class="fa-duotone fa-calendar-users"></i><a href={{ url_for('teacherTimeTable') }}>time table</a></li>
+                    <div class="hr"><hr></div>
+                    <li><i class="fa-duotone fa-books"></i><a href={{ url_for('teacher_subject')}}>subjects</a></li>
+                    <div class="hr"><hr></div>
+                </nav>
+            </ul>
+
+            <div class="edit"> <i class="fa-duotone fa-edit"></i>edit time table</div>
+
+        </div>
+
+        <div class="rightNavBar">
+            <div class="wish">Welcome, Teacher!</div>
+
+
+            <div class="sectionFrame">
+                <div class="section1" id="section1">a section </div>
+                <div class="section2" id="section2">b section</div>
+                <div class="section3" id="section3">c section</div>
+            </div>
+
+
+            <div class="timetable1">
+                <h2>a section - Time Table</h2>
+                <table>
+                    <tr>
+                        <th>day's</th>   <th>8:00-9:00</th>  <th>9:00-10:00</th>  <th>10:30-11:30</th>  <th>11:30-12:30</th>   <th>2:00-3:00</th>   <th>3:00-4:00</th>  <th>4:00-5:00</th>
+                    </tr>
+
+                    <tr>
+                        <th>monday</th> <td>no class</td>    <td>no class</td>   <td>no class</td>  <td>no class</td> <td>no class</td>    <td>no class</td>   <td>no class</td>
+                    </tr>
+
+                    <tr>
+                        <th>tuesday</th>  <td>no class</td>   <td>no class</td>  <td>no class</td> <td>no class</td>    <td>no class</td>   <td>no class</td>  <td>no class</td>
+                    </tr>
+
+                    <tr>
+                        <th>wednesday</th>  <td>no class</td> <td>no class</td>    <td>no class</td>   <td>no class</td>  <td>no class</td> <td>no class</td>    <td>no class</td>
+                    </tr>
+
+                    <tr>
+                        <th>thursday</th>   <td>no class</td>  <td>no class</td> <td>no class</td>    <td>no class</td>   <td>no class</td>  <td>no class</td> <td>no class</td>
+                    </tr>
+
+                    <tr>
+                        <th>friday</th> <td>no class</td>    <td>no class</td>   <td>no class</td>  <td>no class</td> <td>no class</td>    <td>no class</td>   <td>no class</td>
+                    </tr>
+
+                    <tr>
+                        <th>saturday</th>   <td>no class</td>  <td>no class</td> <td>no class</td>    <td>no class</td>   <td>no class</td>  <td>no class</td> <td>no class</td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div class="timetable2">
+                <h2>b section - Time Table</h2>
+                <table>
+                    <tr>
+                        <th>day's</th>   <th>8:00-9:00</th>  <th>9:00-10:00</th>  <th>10:30-11:30</th>  <th>11:30-12:30</th>   <th>2:00-3:00</th>   <th>3:00-4:00</th>  <th>4:00-5:00</th>
+                    </tr>
+
+                    <tr>
+                        <th>monday</th> <td>no class</td>    <td>no class</td>   <td>no class</td>  <td>no class</td> <td>no class</td>    <td>no class</td>   <td>no class</td>
+                    </tr>
+
+                    <tr>
+                        <th>tuesday</th>  <td>no class</td>   <td>no class</td>  <td>no class</td> <td>no class</td>    <td>no class</td>   <td>no class</td>  <td>no class</td>
+                    </tr>
+
+                    <tr>
+                        <th>wednesday</th>  <td>no class</td> <td>no class</td>    <td>no class</td>   <td>no class</td>  <td>no class</td> <td>no class</td>    <td>no class</td>
+                    </tr>
+
+                    <tr>
+                        <th>thursday</th>   <td>no class</td>  <td>no class</td> <td>no class</td>    <td>no class</td>   <td>no class</td>  <td>no class</td> <td>no class</td>
+                    </tr>
+
+                    <tr>
+                        <th>friday</th> <td>no class</td>    <td>no class</td>   <td>no class</td>  <td>no class</td> <td>no class</td>    <td>no class</td>   <td>no class</td>
+                    </tr>
+
+                    <tr>
+                        <th>saturday</th>   <td>no class</td>  <td>no class</td> <td>no class</td>    <td>no class</td>   <td>no class</td>  <td>no class</td> <td>no class</td>
+                    </tr>
+                </table>
+            </div>
+
+
+
+            <div class="timetable3">
+                <h2>c section - Time Table</h2>
+                <table>
+                    <tr>
+                        <th>day's</th>   <th>8:00-9:00</th>  <th>9:00-10:00</th>  <th>10:30-11:30</th>  <th>11:30-12:30</th>   <th>2:00-3:00</th>   <th>3:00-4:00</th>  <th>4:00-5:00</th>
+                    </tr>
+
+                    <tr>
+                        <th>monday</th> <td>no class</td>    <td>no class</td>   <td>no class</td>  <td>no class</td> <td>no class</td>    <td>no class</td>   <td>no class</td>
+                    </tr>
+
+                    <tr>
+                        <th>tuesday</th>  <td>no class</td>   <td>no class</td>  <td>no class</td> <td>no class</td>    <td>no class</td>   <td>no class</td>  <td>no class</td>
+                    </tr>
+
+                    <tr>
+                        <th>wednesday</th>  <td>no class</td> <td>no class</td>    <td>no class</td>   <td>no class</td>  <td>no class</td> <td>no class</td>    <td>no class</td>
+                    </tr>
+
+                    <tr>
+                        <th>thursday</th>   <td>no class</td>  <td>no class</td> <td>no class</td>    <td>no class</td>   <td>no class</td>  <td>no class</td> <td>no class</td>
+                    </tr>
+
+                    <tr>
+                        <th>friday</th> <td>no class</td>    <td>no class</td>   <td>no class</td>  <td>no class</td> <td>no class</td>    <td>no class</td>   <td>no class</td>
+                    </tr>
+
+                    <tr>
+                        <th>saturday</th>   <td>no class</td>  <td>no class</td> <td>no class</td>    <td>no class</td>   <td>no class</td>  <td>no class</td> <td>no class</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        const sections = document.querySelectorAll('.section1, .section2, .section3');
+        const timetables = document.querySelectorAll('.timetable1, .timetable2, .timetable3');
+
+        sections.forEach((section, index) => {
+            section.addEventListener('click', () => { 
+                timetables.forEach(timetable => {
+                    timetable.style.display = 'none';
+                });
+                timetables[index].style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>

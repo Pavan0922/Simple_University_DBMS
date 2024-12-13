@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Course</title>
+    <link rel="stylesheet" href="../../static/adminReg.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="college-background-overlay">
+        <div class="container">
+            <form class="student-form" autocomplete="off" method="post" action="{{ url_for('submit_course') }}">
+                <h1>COURSE FORM</h1>
+                <div class="section course-info">
+                    <h2>Course Info</h2>
+                    <label for="department">Department Name *</label><br>
+                    <select id="department" name="department" required><br>
+                        <option value="" disabled selected>Select</option>
+                        {% for department in departments %}
+                        <option value="{{ department }}">{{ department }}</option>
+                        {% endfor %}
+                    </select><br>
+
+                    <label for="semester">Semester *</label><br>
+                    <select id="semester" name="semester" required><br>
+                        <option value="" disabled selected>Select</option>
+                    </select><br>
+
+                    <label for="courseName">Course Name *</label><br>
+                    <input type="text" id="courseName" name="courseName" required><br>
+
+                    <label for="courseCode">Course Code *</label><br>
+                    <input type="text" id="courseCode" name="courseCode" required><br>
+                </div>
+
+                <div class="submit_btn">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#department').change(function() {
+                var departmentName = $(this).val();
+                $.ajax({
+                    url: '/get_semesters/' + departmentName,
+                    method: 'GET',
+                    success: function(data) {
+                        var semesters = data.semesters;
+                        var $semesterSelect = $('#semester');
+                        $semesterSelect.empty();
+                        $semesterSelect.append('<option value="" disabled selected>Select</option>');
+                        semesters.forEach(function(semester) {
+                            $semesterSelect.append('<option value="' + semester + '">' + semester + '</option>');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

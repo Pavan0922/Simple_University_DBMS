@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bayon&display=swap');
+
+
+*{
+    margin: 0%;
+}
+
+body{
+    background-color: white;
+    font-family: "Lato", sans-serif;
+    display: flex;
+}
+
+.Slogin{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Tlogin{
+    width: 50%;
+    height: 100vh;
+    background-color: #ffe5f5be;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 400px;
+    padding: 25px;
+    justify-content: center;
+    align-items: center;
+
+    .h1{
+        text-align: center;
+        font-size: 53px;
+        font-family: "Bayon", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    height: 270px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputBox{
+    background: linear-gradient(#D9D9D9 0 0) padding-box,linear-gradient(90deg, #5FD9FF, #FA00FF) border-box; 
+    border: 2px solid transparent;
+    border-radius: 5px;
+    width: 350px;
+}
+
+
+input{
+    border: none;
+    width: 310px;
+    height: 40px;
+    outline: none;
+    background-color: #D9D9D9;
+    
+}
+
+input:focus{
+    outline: none;
+    background-color: #D9D9D9;
+}
+
+i{
+    width: 30px;
+    text-align: center;
+}
+
+.submitButton{
+    margin-top: 20px;
+    width: 200px;
+    background:linear-gradient(90deg, #5FD9FF, #FA00FF);
+    border: none;
+    border-radius: 5px;
+    color: #FFFAFF;
+    font-size: 23px;
+    text-transform: uppercase;
+    font-family: "Bayon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.welcome{
+    position: fixed;
+    width: 50%;
+    height: 100vh;
+    background:linear-gradient(125deg, #5FD9FF, #FA00FF);
+    margin-left: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    transition: margin-left 1.5s ease;
+}
+
+.welcoming{
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    .h1{
+        color: white;
+        font-size: 60px;
+        font-family: Aclonica;
+        font-weight: 400;
+        word-wrap: break-word;
+    }
+    .h2{
+        color: white;
+        font-size: 18px;
+        font-family: "lato", sans-serif;;
+        font-weight: 500;
+        word-wrap: break-word;
+    }
+    Button{
+        background-color: transparent;
+        margin-top: 40px;
+        color: white;
+        font-size: 18px;
+        font-family: "lato", sans-serif;;
+        font-weight: 500;
+        word-wrap: break-word;
+        border: 2px #FFFAFF solid;
+        border-radius: 5px;
+        height: 40px;
+        text-align: center;
+        cursor: pointer;
+        text-transform: uppercase;
+    }
+    
+}
+

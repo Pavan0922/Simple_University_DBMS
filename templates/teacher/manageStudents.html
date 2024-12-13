@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='timetable.css') }}">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+    <style>
+    .sectionList { display: none; }
+    [contenteditable="true"] {
+        border: 1px solid #ccc;
+        padding: 5px;
+    }    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="leftNavBar">
+            <button><i class="fa-duotone fa-user"></i><a href="{{ url_for('teacher_profile') }}">My Profile</a></button>
+            <ul>
+                <li><i class="fa-duotone fa-screen-users"></i><a href="{{ url_for('manage_students') }}">Manage Students</a></li>
+                <div class="hr"><hr></div>
+                <li><i class="fa-duotone fa-calendar-users"></i><a href="{{ url_for('teacherTimeTable') }}">Time Table</a></li>
+                <div class="hr"><hr></div>
+                <li><i class="fa-duotone fa-books"></i><a href="{{ url_for('teacher_subject') }}">Subjects</a></li>
+                <div class="hr"><hr></div>
+            </ul>
+            <div class="edit"> <i class="fa-duotone fa-edit"></i>edit Marks</div>
+        </div>
+
+        <div class="rightNavBar">
+            <div class="wish">Welcome, Teacher!</div>
+            <div class="sectionFrame">
+                <button class="sectionButton" data-section="A">A Section</button>
+                <button class="sectionButton" data-section="B">B Section</button>
+                <button class="sectionButton" data-section="C">C Section</button>
+            </div>
+
+            {% for section, students in sections.items() %}
+            <div class="{{ section }}_sectionList sectionList">
+                <div class="allStudents">
+                    <div class="list">
+                        <h1> "{{ section }}" Section Attendance</h1>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Register Number</th>
+                                    <th>Student Name</th>
+                                    <th>1st Internal Marks</th>
+                                    <th>2nd Internal Marks</th>
+                                    <th>Average Marks</th>
+                                    <th>Present</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for student in students %}
+                                <tr>
+                                    <td>{{ student.USN }}</td>
+                                    <td>{{ student.F_Name }} {{ student.M_Name }} {{ student.L_Name }}</td>
+                                    <td class="fNternal">{{ student.First_Internal }}</td>
+                                    <td class="sNternal">{{ student.Second_Internal }}</td>
+                                    <td class="averageMarks"></td>
+                                    <td class="present" style="font-size: 45px; cursor: pointer; user-select: none;">    <select class="attendance-dropdown">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                    </select></td>
+                                    <td>{{ student.Total }}</td>
+                                </tr>
+                                
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <button class="submitMarks">Submit</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+
+            const editButton = document.querySelector('.edit');
+            let isEditable = false;
+
+            editButton.addEventListener('click', () => {
+                isEditable = !isEditable;
+                const cells = document.querySelectorAll('.fNternal, .sNternal');
+                
+                cells.forEach(cell => {
+                    cell.contentEditable = isEditable;
+                    cell.style.backgroundColor = isEditable ? '#ffffcc' : '';
+                });
+                
+                editButton.textContent = isEditable ? 'Save Marks' : 'Edit Marks';
+            });
+
+        const sectionButtons = document.querySelectorAll('.sectionButton');
+        const sectionLists = document.querySelectorAll('.sectionList');
+
+        sectionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const section = button.getAttribute('data-section');
+                sectionLists.forEach(list => {
+                    list.style.display = 'none';
+                });
+                document.querySelector(`.${section}_sectionList`).style.display = 'block';
+            });
+        });
+
+
+
+        // Calculate average marks for each student
+        const studentElements = document.querySelectorAll('tr');
+        studentElements.forEach(studentElement => {
+            const fNternal = parseFloat(studentElement.querySelector('.fNternal').textContent);
+            const sNternal = parseFloat(studentElement.querySelector('.sNternal').textContent);
+            const average = (fNternal + sNternal) / 2;
+            studentElement.querySelector('.averageMarks').textContent = average.toFixed(2); // Display average with 2 decimal places
+        });
+
+        // Extract and sort register numbers
+        const studentArrange = document.querySelectorAll('tr');
+        const registerNumbers = Array.from(studentArrange, student => student.querySelector('td').textContent);
+        const sortedRegisterNumbers = registerNumbers.sort();
+
+        studentArrange.forEach((studentElement, index) => {
+            studentElement.querySelector('td').textContent = sortedRegisterNumbers[index];
+        });
+
+        // Get the contenteditable elements
+        const fNternalElement = document.querySelector('.fNternal');
+        const sNternalElement = document.querySelector('.sNternal');
+
+        // Load saved content from local storage
+        const savedFInternal = localStorage.getItem('fNternal');
+        const savedSInternal = localStorage.getItem('sNternal');
+
+        // Set initial content or load saved content
+        fNternalElement.textContent = savedFInternal || fNternalElement.textContent;
+        sNternalElement.textContent = savedSInternal || sNternalElement.textContent;
+
+        // Save content when it changes
+        fNternalElement.addEventListener('input', () => {
+            localStorage.setItem('fNternal', fNternalElement.textContent);
+        });
+
+        sNternalElement.addEventListener('input', () => {
+            localStorage.setItem('sNternal', sNternalElement.textContent);
+        });
+    </script>
+</body>
+</html>

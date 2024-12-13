@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/auth.css">
+    
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+</head>
+<body>
+    <div class="Slogin">
+        <div class="login">
+            <div class="h1">Student Login</div>
+            <form action="student_login" method="POST">
+                <div class="inputBox">
+                    <i class="fa-duotone fa-envelope"></i><input type="email" name="email" placeholder="Email">
+                </div>
+                
+                <div class="inputBox">
+                    <i class="fa-duotone fa-lock"></i><input type="password" name="password" placeholder="Password">
+                </div>
+                
+                <button class="submitButton" type="submit">Login</button>
+            </form>
+            <div class="invalid" style="display: none;"fa-duotone>
+                <div class="text"><i class="fa-duotone fa-exclamation-triangle" style="color: red; font-size: 22px;"></i>Invalid Email or Password </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="Tlogin">
+        <div class="login">
+            <div class="h1">teacher Login</div>
+            <form action="/teacher_login" method="POST">
+                <div class="inputBox">
+                    <i class="fa-duotone fa-envelope"></i><input type="email" name="email" placeholder="Email">
+                </div>
+                
+                <div class="inputBox">
+                    <i class="fa-duotone fa-lock"></i><input type="password" name="password" placeholder="Password">
+                </div>
+                
+                <button class="submitButton" type="submit">Login</button>
+            </form>
+            <div class="invalid" style="display: none;">
+                <div class="text"><i class="fa-duotone fa-exclamation-triangle" style="color:red; font-size: 22px; "></i>Invalid Email or Password</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="welcome">
+        <div class="welcoming">
+            <div class="h1">Welcome Student!</div>
+            <div class="h2">Enter your details, get started to access your Dashbord</div>
+            <button id="loginButton">teacher login</button>
+        </div>
+    </div>
+    
+
+    <script>
+
+const welcomeDiv = document.querySelector('.welcome');
+const h1Element = document.querySelector('.welcome .h1');
+const buttonElement = document.getElementById('loginButton');
+
+let isTeacherMode = false;
+
+buttonElement.addEventListener('click', function() {
+    isTeacherMode = !isTeacherMode;
+
+    if (isTeacherMode) {
+        h1Element.textContent = 'Welcome Teacher!';
+        buttonElement.textContent = 'Student Login';
+    } else {
+        h1Element.textContent = 'Welcome Student!';
+        buttonElement.textContent = 'Teacher Login';
+    }
+
+    // Toggle margin animation
+    welcomeDiv.style.marginLeft = isTeacherMode ? '0%' : '50%';
+    // conversion of gradient colors
+    welcomeDiv.style.background = isTeacherMode? 'linear-gradient(45deg, #5FD9FF, #FA00FF)' : 'linear-gradient(120deg, #5FD9FF, #FA00FF)';
+});
+
+
+
+
+
+    </script>
+        
+
+</body>
+</html>

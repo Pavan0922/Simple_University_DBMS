@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Timetable</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='timetable.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+</head>
+
+<body>
+    <div class="background">
+        <div class="leftNavBar">
+            <button><i class="fa-duotone fa-user"></i><a href="{{ url_for('student_profile') }}">My Profile</a></button>
+            <ul>
+                <nav>
+                    <li><i class="fa-duotone fa-books"></i><a href="{{ url_for('student_subject') }}">Subjects</a></li>
+                    <div class="hr"><hr></div>
+                    <li><i class="fa-duotone fa-calendar-users"></i><a style="cursor: pointer;">Time Table</a></li>
+                    <div class="hr"><hr></div>
+                </nav>
+            </ul>
+        </div>
+
+        <div class="rightNavBar">
+            <div class="wish">Welcome, Student!</div>
+
+            <div class="sectionFrame">
+                <div class="section1" id="section1">A Section</div>
+            </div>
+
+            <div class="timetable1">
+                <h2>A Section - Time Table</h2>
+                <table>
+                    <tr>
+                        <th>Days</th> <th>8:00-9:00</th> <th>9:00-10:00</th> <th>10:30-11:30</th> <th>11:30-12:30</th> <th>2:00-3:00</th> <th>3:00-4:00</th> <th>4:00-5:00</th>
+                    </tr>
+                    <tr>
+                        <th>Monday</th> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td>
+                    </tr>
+                    <tr>
+                        <th>Tuesday</th> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td>
+                    </tr>
+                    <tr>
+                        <th>Wednesday</th> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td>
+                    </tr>
+                    <tr>
+                        <th>Thursday</th> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td>
+                    </tr>
+                    <tr>
+                        <th>Friday</th> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td>
+                    </tr>
+                    <tr>
+                        <th>Saturday</th> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td> <td>No Class</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        const sections = document.querySelectorAll('.section1');
+        const timetables = document.querySelectorAll('.timetable1');
+
+        sections.forEach((section, index) => {
+            section.addEventListener('click', () => {
+                timetables.forEach(timetable => {
+                    timetable.style.display = 'none';
+                });
+                timetables[index].style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>

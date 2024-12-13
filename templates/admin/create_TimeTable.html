@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../static/admin.css">
+</head>
+<body>
+    <div class="background">
+        <div class="container">
+            <div class="TableGlass">
+                <form method="POST" action="/submit_timetable">
+                    <div class="header">
+                        <select name="section" id="section" onchange="showTable()">
+                            <option value="" disabled selected>SECTION</option>
+                            <option value="sectionA">Section A</option>
+                            <option value="sectionB">Section B</option>
+                            <option value="sectionC">Section C</option>
+                            <option value="sectionD">Section D</option>
+                        </select>
+                        <select name="semester" id="semester" onchange="showTable()">
+                            <option value="" disabled selected>SEMESTER</option>
+                            <option value="semester1">Semester 1</option>
+                            <option value="semester2">Semester 2</option>
+                            <option value="semester3">Semester 3</option>
+                            <option value="semester4">Semester 4</option>
+                        </select>
+                        <select name="department" id="department" onchange="showTable()">
+                            <option value="" disabled selected>DEPARTMENT</option>
+                            <option value="cse">Computer Science</option>
+                            <option value="ece">Electronics and Communication</option>
+                            <option value="mech">Mechanical Engineering</option>
+                            <option value="civil">Civil Engineering</option>
+                        </select>
+                    </div>
+
+                    <h1>Time Table</h1>
+                    <div id="table-container" style="display: none;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Day's</th>
+                                    <th>8:00 - 9:00</th>
+                                    <th>9:00 - 10:00</th>
+                                    <th>10:30 - 11:30</th>
+                                    <th>11:30 - 12:30</th>
+                                    <th>2:00 - 3:00</th>
+                                    <th>3:00 - 4:00</th>
+                                    <th>4:00 - 5:00</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Monday</td>
+                                    <td><select name="monday_8_9"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="monday_9_10"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="monday_10_30_11_30"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="monday_11_30_12_30"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="monday_2_3"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="monday_3_4"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="monday_4_5"><option value="null" disabled selected>Null</option></select></td>
+                                </tr>
+                                <tr>
+                                    <td>Tuesday</td>
+                                    <td><select name="tuesday_8_9"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="tuesday_9_10"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="tuesday_10_30_11_30"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="tuesday_11_30_12_30"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="tuesday_2_3"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="tuesday_3_4"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="tuesday_4_5"><option value="null" disabled selected>Null</option></select></td>
+                                </tr>
+                                <tr>
+                                    <td>Wednesday</td>
+                                    <td><select name="wednesday_8_9"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="wednesday_9_10"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="wednesday_10_30_11_30"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="wednesday_11_30_12_30"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="wednesday_2_3"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="wednesday_3_4"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="wednesday_4_5"><option value="null" disabled selected>Null</option></select></td>
+                                </tr>
+                                <tr>
+                                    <td>Thursday</td>
+                                    <td><select name="thursday_8_9"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="thursday_9_10"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="thursday_10_30_11_30"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="thursday_11_30_12_30"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="thursday_2_3"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="thursday_3_4"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="thursday_4_5"><option value="null" disabled selected>Null</option></select></td>
+                                </tr>
+                                <tr>
+                                    <td>Friday</td>
+                                    <td><select name="friday_8_9"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="friday_9_10"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="friday_10_30_11_30"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="friday_11_30_12_30"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="friday_2_3"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="friday_3_4"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="friday_4_5"><option value="null" disabled selected>Null</option></select></td>
+                                </tr>
+                                <tr>
+                                    <td>Saturday</td>
+                                    <td><select name="saturday_8_9"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="saturday_9_10"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="saturday_10_30_11_30"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="saturday_11_30_12_30"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="saturday_2_3"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="saturday_3_4"><option value="null" disabled selected>Null</option></select></td>
+                                    <td><select name="saturday_4_5"><option value="null" disabled selected>Null</option></select></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="teachers">
+                            <h3>Teachers and Subjects</h3>
+                            <div>Subject 1: Teacher A</div>
+                            <div>Subject 2: Teacher B</div>
+                            <div>Subject 3: Teacher C</div>
+                            <div>Subject 4: Teacher D</div>
+                        </div>
+                        <button class="btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>    
+        </div>
+    </div>
+
+
+    <script>
+        function showTable() {
+            const section = document.getElementById('section').value;
+            const semester = document.getElementById('semester').value;
+            const department = document.getElementById('department').value;
+            const tableContainer = document.getElementById('table-container');
+            const teachersContainer = document.getElementById('teachers-container');
+
+            if (section && semester && department) {
+                tableContainer.style.display = 'block';
+                teachersContainer.style.display = 'block';
+            } else {
+                tableContainer.style.display = 'none';
+                teachersContainer.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

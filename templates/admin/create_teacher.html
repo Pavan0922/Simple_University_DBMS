@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Form</title>
+    <link rel="stylesheet" href="../../static/adminReg.css">
+</head>
+<body>
+    <div class="teacher-background-overlay">
+        <div class="container">
+            <form class="Teacher-form" autocomplete="off" method="post" action="/submit_teacher">
+                <h1>TEACHER FORM</h1>
+                <div class="section basic-details">
+                    <h2>Basic Details</h2>
+                    <label for="first-name">First Name *</label><br>
+                    <input type="text" id="first-name" name="first-name" placeholder="First Name of the Teacher" required><br>
+                    
+                    <label for="middle-name">Middle Name</label><br>
+                    <input type="text" id="middle-name" name="middle-name" placeholder="Middle Name of the Teacher"><br>
+
+                    <label for="last-name">Last Name *</label><br>
+                    <input type="text" id="last-name" name="last-name" placeholder="Last Name of the Teacher" required><br>
+                    <label for="gender">Gender *</label><br>
+                    <input type="text" id="gender" name="gender" placeholder="M/F" required><br>
+
+                    <label for="dob">Date of Birth *</label><br>
+                    <input type="date" id="dob" name="dob" required><br>
+                </div>
+                <div class="section contact-info">
+                    <h2>Contact Info</h2>
+                    <label for="phone-number">Phone Number *</label><br>
+                    <input type="text" id="phone-number" name="phone-number" placeholder="Phone Number" required><br>
+
+                    <label for="email">Email *</label><br>
+                    <input type="email" id="email" name="email" placeholder="Email" required><br>
+
+                    <label for="password">Password *</label><br>
+                    <input type="password" id="create_password" name="password" placeholder="Enter Your Password" required><br>
+                </div>
+                <div class="section college-info">
+                    <h2>College Info</h2>
+                    <label for="department">Department Name *</label><br>
+                    <select id="department" name="department" required>
+                        <option value="" disabled selected>Select</option>
+                        {% for department in departments %}
+                            <option value="{{ department }}">{{ department }}</option>
+                        {% endfor %}
+                    </select><br>
+
+                    <label for="enrollment-year">Enrollment Year *</label><br>
+                    <input type="date" id="enrollment-year" name="enrollment-year" required><br>
+                </div>
+
+                <div class="submit_btn">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <script>
+            // Function to set today's date in the date input
+            function setTodayDate() {
+                const dateInput = document.getElementById('enrollment-year');
+                const today = new Date();
+                const year = today.getFullYear();
+                const month = String(today.getMonth() + 1).padStart(2, '0');
+                const day = String(today.getDate()).padStart(2, '0');
+                const todayDate = `${year}-${month}-${day}`;
+                dateInput.value = todayDate;
+            }
+
+            // Call the function when the page loads
+            window.onload = setTodayDate;
+        </script>
+    </div>
+</body>
+</html>

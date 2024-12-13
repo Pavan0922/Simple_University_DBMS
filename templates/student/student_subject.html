@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Subjects</title>
+    <link rel="stylesheet" href="../../static/sstyles.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+</head>
+<body>
+    <div class="background">
+        <div class="SleftNavBar">
+            <button>
+                <i class="fa-duotone fa-user"></i>
+                    <!-- student_subject.html -->
+                <a href="{{ url_for('student_profile') }}">My Profile</a>
+            </button>
+            <ul>
+                <nav>
+                    <li>
+                        <i class="fa-duotone fa-books"></i>
+                        <a style="cursor: pointer;">Subjects</a>
+                    </li>
+                    <div class="hr"><hr></div>
+                    <li>
+                        <i class="fa-duotone fa-calendar-users"></i>
+                        <a href="{{ url_for('student_timetable') }}">Time Table</a>
+                    </li>
+                    <div class="hr"><hr></div>
+                </nav>
+            </ul>
+        </div>
+
+        <div class="SrightNavBar">
+            <div class="wish">Welcome, Student!</div>
+
+            <div class="student-subject-container">
+                <!-- Example student subject card -->
+                <div class="student-subject"> 
+                    <span class="sub_type">Theory</span>
+                    <div class="sub_name"><span>BCS4008</span> : Engineering Maths</div>
+                    <div class="detail-container">
+                        <div class="detail-column">
+                            <div class="detail2"><div>Teacher:</div> <span>Vikas</span></div>
+                            <div class="detail2"><div>Attendance:</div> <span>23</span></div>
+                            <div class="detail2"><div>Taken Classes:</div> <span>25</span></div>
+                            <div class="detail2"><div>1st Internal Marks:</div> <span>25</span></div>
+                            <div class="detail2"><div>2nd Internal Marks:</div> <span>25</span></div>
+                            <div class="detail2"><div>Final Exam Marks:</div> <span>78</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat similar blocks for other subjects -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
